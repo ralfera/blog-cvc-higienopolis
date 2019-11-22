@@ -45,6 +45,13 @@ h1 {
   height: 100%;
 }
 
+@media (max-width: 400px) {
+.oferta-hero-colunadois {
+  margin-top: 10px;
+}
+
+}
+
 .oferta-hero-colunadois h1 {
   font-weight: 900;
   text-align: center;

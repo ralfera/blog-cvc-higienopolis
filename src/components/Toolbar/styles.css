@@ -34,6 +34,24 @@
   flex:1;
 }
 
+@media (max-width: 400px) {
+  .toolbar_navigation-items{
+    margin-top: 10px;
+  }
+
+  .toolbar_navigation-items a{
+    font-size: 15px!important;
+    display: inline-block;
+  }
+  .toolbar__navigation {
+    flex-direction: column;
+  }
+  .toolbar{
+    margin-bottom: 10px;
+  }
+
+}
+
 .toolbar_navigation-items {
 }
 
