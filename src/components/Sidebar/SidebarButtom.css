@@ -1,0 +1,25 @@
+.sidebar-button {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  background:transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 0;
+
+}
+
+.sidebar-button:focus {
+  outline: none;
+}
+
+.sidebar-button_line {
+height: 5px;
+background: white;
+width: 30px;
+background-color: #FFC52F;
+
+}

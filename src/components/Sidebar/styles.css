@@ -1,0 +1,61 @@
+.sidebar-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  height: 100%;
+  width: 70%;
+  max-width: 350px;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-out;
+  overflow-y: scroll;
+}
+
+.sidebar-wrapper.open{
+  transform: translateX(0)
+}
+
+.outras-ofertas-wrapper {
+  margin-top: 15px;
+  height: 100%;
+}
+
+.outras-ofertas-wrapper h1 {
+  text-align: center;  
+}
+
+.outras-ofertas-wrapper ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.outras-ofertas-wrapper li{
+  flex-grow: 1;
+
+}
+
+/* Largura da barra de rolagem */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Fundo da barra de rolagem */
+::-webkit-scrollbar-track-piece {
+  background-color: #FFDB22;
+  border-left: 1px solid #CCC
+}
+
+/* Cor do indicador de rolagem */
+::-webkit-scrollbar-thumb:vertical,
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: #BAC0C4
+}
+
+/* Cor do indicador de rolagem - ao passar o mouse */
+::-webkit-scrollbar-thumb:vertical:hover,
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background-color: #082A63
+}

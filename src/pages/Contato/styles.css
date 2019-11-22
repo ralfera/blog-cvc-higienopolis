@@ -1,0 +1,33 @@
+.contato-filial-wrapper {
+min-height: 400px;
+  
+}
+
+.contato-filial-wrapper h2 {
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.contato-filial-wrapper p {
+  padding: 10px 0;
+  line-height: 1.3rem;
+}
+
+.contato-form {
+ background-color: #FFDB22;
+ padding: 15px 10px;
+ border-radius: 0.5rem;
+ text-align: justify;
+}
+
+.contato-form p {
+  line-height: 1.3rem;
+}
+
+.contato-form input {
+  margin: 15px 0;
+}
+
+.contato-form button {
+  margin-top: 10px;
+}
