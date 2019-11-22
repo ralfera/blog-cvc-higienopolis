@@ -1,6 +1,6 @@
 {
-  "name": "CVC Higieanópolis - Porto Alere",
-  "version": "0.1",
+  "name": "CVC",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
