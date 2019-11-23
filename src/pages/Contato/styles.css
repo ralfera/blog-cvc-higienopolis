@@ -8,6 +8,10 @@ min-height: 400px;
   font-weight: 900;
 }
 
+.contato-filial-wrapper svg {
+  color: #082A63;
+}
+
 .contato-filial-wrapper p {
   padding: 10px 0;
   line-height: 1.3rem;
@@ -30,4 +34,11 @@ min-height: 400px;
 
 .contato-form button {
   margin-top: 10px;
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 }

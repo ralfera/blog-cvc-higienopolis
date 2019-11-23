@@ -1,0 +1,43 @@
+/* #FFC52F */
+
+.login-wrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: #082A63;
+  align-items: center;
+  justify-content: center;
+  margin: auto
+}
+
+.login-form-wrapper {
+max-width: 400px;
+padding: 50px;
+border-radius: 0.2rem;
+background-color: #FFC52F;
+}
+
+.login-form-wrapper form {
+  
+}
+
+.form-label {
+  color: black;
+  padding-bottom: 5px;
+}
+
+.btn-cvc {
+  color: white;
+  background-color: #082a63;
+  border-color: white;
+}
+
+.btn-cvc:hover {
+  padding: 20px;
+  color: white;
+  transition: .4s ease-out;
+}
+
+.btn-cvc: {
+color: white;
+}

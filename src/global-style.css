@@ -26,12 +26,17 @@ time, mark, audio, video {
 	font-family: 'Roboto Slab', serif;
 }
 /* HTML5 display-role reset for older browsers */
+
+html {
+	height: 100%;
+}
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
 	line-height: 1;
+	height: 100%;
 }
 ol, ul {
 	list-style: none;
@@ -47,4 +52,8 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+#root {
+	height: 100%;
 }

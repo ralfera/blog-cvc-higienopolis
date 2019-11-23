@@ -27,8 +27,7 @@ function Layout(props) {
       {backdrop}
       <section style={{marginTop: '25-px'}}>
         {props.children}
-      </section>
-      
+      </section>      
     </Container>
   );
 }

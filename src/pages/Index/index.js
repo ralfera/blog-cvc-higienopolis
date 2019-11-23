@@ -9,11 +9,11 @@ export default function OfertaHero() {
     <Container>
       <h1>Ofertaço Para Você:</h1>
       <Row className="oferta-hero-wrapper">
-        <Col lg="7">
+        <Col lg={{span:7, order: 1 }} xs={{span: 12, order:2}}>
           {/* Primeira Coluna */}
-          <Row bsPrefix="oferta-hero-colunaum">
+          <Row bsPrefix="oferta-hero-colunaum " >
             <Col bsPrefix="oferta-hero-img">
-              <Image src={image} fluid />
+              <Image src={image} fluid rounded/>
             </Col>
             <Col className="oferta-hero-detalhes">
               <h2>Detalhes Do Pacote:</h2>
@@ -28,7 +28,7 @@ export default function OfertaHero() {
           </Row>
         </Col>
         {/* Segunda Coluna */}
-        <Col lg="5" className="">
+        <Col lg={{span:5, order:2}} xs={{span: 12, order:1}} className="">
           <div className="oferta-hero-colunadois">
           <h1>Singapura Com Tudo Liberado</h1>
           <p className="oferta-hero-preco">
