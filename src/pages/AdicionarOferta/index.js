@@ -1,12 +1,12 @@
 import React from 'react'
 import './styles.css'
 import LayoutAdmin from '../../components/AdminLayout'
-import useFormSubmit from './customhooks'
 import {useState} from 'react'
-
+import db from '../../config/firebase'
 import {Col, Form, Button} from 'react-bootstrap'
 
 export default function AdicionarOferta() {
+
 
   const [detailInput, setDetailInput] = useState();
   
