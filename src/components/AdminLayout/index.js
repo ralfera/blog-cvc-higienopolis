@@ -12,7 +12,7 @@ const LayoutAdmin = (props) => {
 
   return(
     <div id="wrapper">
-      { useSelector(state=>state.user.isLoggedIn) ? null : <Redirect to="/login"/>}
+      {/* { useSelector(state=>state.user.isLoggedIn) ? null : <Redirect to="/login"/>} */}
     <div id="sidebar-wrapper" className="border-right">
       <div className="sidebar-heading">CVC - Admin</div>
       <ListGroup variant="flush">

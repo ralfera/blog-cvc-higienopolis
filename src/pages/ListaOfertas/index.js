@@ -1,11 +1,53 @@
-import React from 'react';
-import LayoutAdmin from '../../components/AdminLayout';
+import React, { useState, useEffect } from "react";
 
-import {Button, Table, Container, Row, Col} from 'react-bootstrap'
+import { Link } from "react-router-dom";
+import LayoutAdmin from "../../components/AdminLayout";
+import firebase from "../../config/firebase";
 
-// import { Container } from './styles';
+import {Table } from "react-bootstrap";
+import ModalFile from '../../components/Modal'
+
+
 
 export default function ListaOfertas() {
+  
+  const useOfertas = () => {
+    const db = firebase.firestore();
+    const [tabela, setTabela] = useState([]);
+  
+    const formatData = data => {
+      const newData = data.toDate();
+      let dia = newData.getDate();
+      let mes = newData.getMonth() + 1;
+      let ano = newData.getFullYear();
+  
+      return dia + "/" + mes + "/" + ano;
+    };
+  
+    useEffect(() => {
+      db.collection("ofertas")
+        .orderBy("data", "desc")
+        .onSnapshot(snapshot => {
+          const newArr = snapshot.docs.map(doc => ({
+            id: doc.id,
+            titulo: doc.data().titulo,
+            preco: doc.data().preco,
+            data: formatData(doc.data().data)
+          }));
+          setTabela(newArr);
+        });
+    }, [ListaOfertas]);
+    return tabela;
+  };
+
+  const items = useOfertas();
+  const {
+    show,
+    handleShow,
+    handleClose,
+    ModalComponent
+  } = ModalFile()
+
   return (
     <LayoutAdmin>
       <h1>Lista de Ofertas</h1>
@@ -21,27 +63,20 @@ export default function ListaOfertas() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Cruzeiro MSC / Jamaica</td>
-              <td>12.590,24</td>
-              <td>12/12/2019</td>
-              <td>Editar / Deletar</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Singapura All Inclusive</td>
-              <td>7998.58</td>
-              <td>01/01/2020</td>
-              <td>Editar / Deletar</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Costão do Santinho All Inclusive</td>
-              <td>1225.50</td>
-              <td>02/02/2020</td>
-              <td>Editar / Deletar</td>
-            </tr>
+            {items.map(item => (
+              <tr key={item.id} id={item.id}>
+                <td>1</td>
+                <td>{item.titulo}</td>
+                <td>{item.preco}</td>
+                <td>{item.data}</td>
+                <td>
+                  Editar / <Link onClick={handleShow}>Deletar</Link>
+                </td>
+              </tr>
+            ))}
+            {
+              <ModalComponent/>
+            }
           </tbody>
         </Table>
       </div>
