@@ -17,6 +17,7 @@ h1 {
 }
 
 .oferta-hero-detalhes {
+  text-align: justify;
   margin-top: 15px;
   padding: 10px 25px;
   background-color: #FFC52F;
@@ -76,4 +77,10 @@ h1 {
 
 .oferta-hero-form input {
   margin: 10px 0;
+}
+
+.detalheico svg{
+  max-height: 20px;
+  padding-right: 5px;
+  height: 100%;
 }

@@ -4,9 +4,10 @@ const INITIAL_STATE = {
     usuarioEmail: '',
     uid: ''
   },
-  background: {
-    color: "black"
+  sidebar: {
+    show: false
   }
+
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -21,6 +22,13 @@ const userReducer = (state = INITIAL_STATE, action) => {
       }
     case "LOG_OUT":
       return console.log("deslogou", state);
+
+    case "OPEN_SIDEBAR":
+      return {
+        sidebar: {
+          show: action.show
+        }
+       }
     default:
       return state;
   }

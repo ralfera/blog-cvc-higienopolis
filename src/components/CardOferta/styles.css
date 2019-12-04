@@ -7,7 +7,9 @@
 
 .card-title { 
   text-transform: uppercase;
+  font-size: 1.3rem;
   text-align: center;
+  font-weight: 700;
 }
 .card{
   width:17rem;
@@ -22,6 +24,8 @@
 .card-text {
   text-align: center;
   margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .card-oferta-footer {

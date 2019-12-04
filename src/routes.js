@@ -20,7 +20,7 @@ export default function Routes() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/admin" component={AdminPage} />
         <Route exact path="/admin/adicionar" component={AdicionarOferta} />
-        <Route exact path="/admin/listar" component={ListarOferta} />        
+        <Route exact path="/admin/listar" component={ListarOferta} />   
       </Switch>
     </BrowserRouter>
   </Provider>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import LayoutAdmin from "../../components/AdminLayout";
 import { Col, Form, Button, Alert } from "react-bootstrap";
@@ -6,7 +6,6 @@ import "./styles.css";
 
 import useFormOfertas from "./customhooks";
 import firebase from "../../config/firebase";
-import { useState } from "react";
 
 export default function AdicionarOferta() {
   const [msgHandler, setMsgHandler] = useState(false);
@@ -14,7 +13,8 @@ export default function AdicionarOferta() {
   const storage = firebase.storage();
   const db = firebase.firestore();
 
-  const callback = () => {
+    const callback = () => {
+
     storage
       .ref(`imagens/${formValues.foto.name}`)
       .put(formValues.foto)

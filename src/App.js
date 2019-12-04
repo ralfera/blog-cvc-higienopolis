@@ -1,11 +1,11 @@
 import React from 'react';
 import Layout from './Layout'
-import OfertaHero from './pages/Index';
+import Index from './pages/Index';
 
 export default function App() {
   return (
       <Layout>
-        <OfertaHero />
+        <Index />
       </Layout>
   );
 }
