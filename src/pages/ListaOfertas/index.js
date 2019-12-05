@@ -70,7 +70,7 @@ export default function ListaOfertas() {
                 <td>{item.preco}</td>
                 <td>{item.data}</td>
                 <td>
-                  Editar / <Link onClick={handleShow}>Deletar</Link>
+                  <Link to={"/editar/"+item.id} >Editar</Link> / <Link onClick={handleShow}>Deletar</Link>
                 </td>
               </tr>
             ))}

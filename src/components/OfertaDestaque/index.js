@@ -1,17 +1,19 @@
 
-import React, {useState, useEffect, useLayoutEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import {Row, Col, Form, Button} from 'react-bootstrap'
 
 import {Beenhere as Detalheico} from 'styled-icons/material/Beenhere'
+import {Whatsapp as Whatsappico} from 'styled-icons/icomoon/Whatsapp'
 
 import firebase from '../../config/firebase'
+import useOfertaDestaque from './useOfertaDestaque'
 
 const OfertaDestaque = (props) => {
 
-const db = firebase.firestore()
-const storage = firebase.storage()
+const {inputHandleChange , formHandleClick } = useOfertaDestaque()
 
+const storage = firebase.storage()
 const [imgOferta, setImgOferta] = useState()
 
 useEffect(()=>{
@@ -52,29 +54,34 @@ return (
             Gostou da oferta? Preencha o formulário abaixo com seus dados que um
             de nossos consultores entrará em contato com você!
           </p>
-          <Form className="oferta-hero-form">
+          <Form id="form-orcamento" className="oferta-hero-form">
             <Form.Group>
               <Form.Control
                 type="text"
                 name="nome"
                 id="nome"
                 placeholder="Digite seu Nome"
+                onChange={inputHandleChange}
               />
               <Form.Control
                 type="phone"
                 name="telefone"
                 id="telefone"
                 placeholder="Digite seu telefone"
+                onChange={inputHandleChange}
               />
               <Form.Control
                 type="email"
                 name="email"
                 id="email"
                 placeholder="Digite seu email"
+                onChange={inputHandleChange}
               />
-              <Form.Control type="text" name="assunto" id="assunto" />
-              <Button variant="primary btn-block btn-lg" type="submit">
+              <Button variant="primary btn-block btn-lg" onClick={formHandleClick}>
                 ENVIAR
+              </Button>
+              <Button variant="success btn-block btn-lg">
+              <Whatsappico style={{float:'left', maxHeight:30}}/><p>Whatsapp Web</p>
               </Button>
             </Form.Group>
           </Form>

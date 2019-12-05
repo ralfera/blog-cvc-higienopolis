@@ -7,6 +7,7 @@ import Login from './pages/Login/'
 import AdminPage from './pages/Admin'
 import AdicionarOferta from './pages/AdicionarOferta'
 import ListarOferta from './pages/ListaOfertas'
+import EditarOferta from './pages/EditarOferta'
 import {Provider} from 'react-redux';
 import store from './store'
 
@@ -21,6 +22,7 @@ export default function Routes() {
         <Route exact path="/admin" component={AdminPage} />
         <Route exact path="/admin/adicionar" component={AdicionarOferta} />
         <Route exact path="/admin/listar" component={ListarOferta} />   
+        <Route path="/editar/:id" component={EditarOferta} />   
       </Switch>
     </BrowserRouter>
   </Provider>
