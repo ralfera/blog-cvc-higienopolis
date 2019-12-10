@@ -6,12 +6,11 @@ import 'firebase/auth'
 import useForm from './useForm'
 import validate from './formValidation'
 import {Redirect} from 'react-router-dom'
-import { useDispatch, useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
 export default function LoginApp() {
 
   const dispatch = useDispatch()
-  
   const [isLoading, setIsLoading] = useState(0)
 
   const {
@@ -21,26 +20,39 @@ export default function LoginApp() {
     handleSubmit,
   } = useForm(login, validate);
 
-
   async function login() {
-    try{
-    setIsLoading(1)
-    const {user: {uid}} = await db.auth().signInWithEmailAndPassword(values.email, values.password)
-    setIsLoading(0)
-    if(uid) {    
-    dispatch({type:"LOG_IN", usuarioEmail: values.email, uid: uid})    
-  }
-  }
-    catch (error) {
-      if(error.code == "auth/wrong-password") {
+    console.log("login")
+
+    try {
+      setIsLoading(1)
+      const userLogged = await db.auth().signInWithEmailAndPassword(values.email, values.password)
+      const {user: {uid}} = userLogged
+      setIsLoading(0)
+      if(uid){
+        dispatch({type:"LOG_IN", usuarioEmail:values.email, uid: uid})
       }
-    }    
+    } catch (error) {
+      console.error(error)
+    }
+    //   try{
+  //   setIsLoading(1)
+  //   const {User: {user: {uid}}} = await db.auth().signInWithEmailAndPassword(values.email, values.password)
+  //   setIsLoading(0)
+  //   if(uid) {    
+  //   dispatch({type:"LOG_IN", usuarioEmail: values.email, uid: uid})    
+  // }
+  // }
+  //   catch (error) {
+  //     if(error.code == "auth/wrong-password") {
+  //     }
+  //   }    
   }
-  console.log(isLoading)
+
+  // console.log(values)
   return (
     <div className="login-wrapper">
       {useSelector(state =>
-        state.user.isLoggedIn ? <Redirect to="/admin" /> : null
+        state.User.user.isLoggedIn ? <Redirect to="/admin" /> : null
       )}
       <div className="login-form-wrapper">
         <Form onSubmit={handleSubmit}>
@@ -84,15 +96,6 @@ export default function LoginApp() {
             </Button>
           )}
         </Form>
-        <div className="login-return">
-          <span></span>
-          <p>Parabéns, você acaba de logar!</p>
-          <span></span>
-          <p>
-            Ops, Não foi possível realizar o log-in! Verifique as informações
-            digitadas e tente novamente.
-          </p>
-        </div>
       </div>
     </div>
   );

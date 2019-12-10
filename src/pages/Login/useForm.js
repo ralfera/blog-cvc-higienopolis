@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { useDispatch, useSelector} from 'react-redux'
+import { useDispatch} from 'react-redux'
 export default function useForm(callback, validate) {
   
   const [values, setValues] = useState({})
@@ -20,7 +20,8 @@ export default function useForm(callback, validate) {
   };
 
   const handleSubmit = (event) => {
-    if (event) event.preventDefault();
+    event.preventDefault();
+    // if (event) event.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);   
     setValues(values=>({...values}))

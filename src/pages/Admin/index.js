@@ -46,7 +46,7 @@ export default function Admin(props) {
         <Row>
           <Col>
             <div className="header-admin">
-              {/* <p>Você possui um total de {totalOfertas} ofertas cadastradas</p> */}
+              {/* <p>Você possui um total de {totalOfertas.length} ofertas cadastradas</p> */}
               
             </div>
           </Col>
