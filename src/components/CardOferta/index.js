@@ -6,15 +6,18 @@ import {Card, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import firebase from '../../config/firebase'
 import OfertaDestaque from '../../components/OfertaDestaque'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
+import store from '../../store/index'
 
 import './styles.css'
 
 export default function CardOferta(props) {
 
+  store.subscribe(()=>{
+    console.log("atualizou o estado", store.getState().Oferta)
+  })
+  
   const dispatch = useDispatch()
-  const teste = useSelector(state=>{return state})
-  console.log(teste)
 
   const storage = firebase.storage()
   const [imgSidebar, setImgSideBar] = useState()
@@ -26,11 +29,11 @@ export default function CardOferta(props) {
   }
   fotourl()
   const renderizar = ()=>{
-    console.log(props.show)
     ReactDOM.render(
       <OfertaDestaque id={props.id} detalhes={props.detalhes} foto={props.foto} titulo={props.titulo} preco={props.preco} />
       , document.getElementById('main-content'))
     dispatch({type:"OPEN_SIDEBAR", show: false})
+    dispatch({type: "", })
   }
 
   return (
@@ -42,7 +45,7 @@ export default function CardOferta(props) {
           R$ {props.preco}
         </Card.Text>
         <footer className="card-oferta-footer">
-        <Link className="btn btn-large btn-cvc btn-block" onClick={renderizar}>Saiba Mais</Link>
+        <Link to="#" className="btn btn-large btn-cvc btn-block" onClick={renderizar}>Saiba Mais</Link>
         </footer>
       </Card.Body>
     </Card>

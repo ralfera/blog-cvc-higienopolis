@@ -20,7 +20,7 @@ export default function Toolbar(props) {
         <div className="toolbar_navigation-items">
             <ul>
               <li><Link to="/">Home</Link></li>
-              <li><Link onClick={props.SidebarClick}> Outras Promoções</Link></li>
+              <li><Link to="#" onClick={props.SidebarClick}> Outras Promoções</Link></li>
               <li><Link to="/contato">Contato</Link></li>
             </ul>      
         </div>

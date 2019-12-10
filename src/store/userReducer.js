@@ -7,7 +7,6 @@ const INITIAL_STATE = {
   sidebar: {
     show: false
   }
-
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -21,10 +20,18 @@ const userReducer = (state = INITIAL_STATE, action) => {
         }
       }
     case "LOG_OUT":
-      return console.log("deslogou", state);
+      return {
+        ...state,
+        user: {
+        usuarioEmail: null,
+        uid: null,
+        isLoggedIn: false
+        }
+      }
 
     case "OPEN_SIDEBAR":
       return {
+        ...state,
         sidebar: {
           show: action.show
         }
